@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Mail Viewer</title>
+  <style>
+    :root {
+      --background-color: #FFF;
+      --text-color: #000;
+      --button-bg-color: #4CAF50;
+      --button-text-color: #FFF;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --background-color: #333;
+        --text-color: #FFF;
+        --button-bg-color: #45a049;
+        --button-text-color: #FFF;
+      }
+    }
+
+    .dark-mode {
+      --background-color: #333;
+      --text-color: #FFF;
+      --button-bg-color: #45a049;
+      --button-text-color: #FFF;
+    }
+
+    body {
+      background-color: var(--background-color);
+      color: var(--text-color);
+      width: 300px;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 12px;
+      box-sizing: border-box;
+    }
+
+    h1 {
+      color: var(--text-color);
+      font-size: 18px;
+      margin-top: 0;
+    }
+
+    p {
+      color: var(--text-color);
+      font-size: 14px;
+    }
+
+    .button {
+      display: block;
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .file-input {
+      display: none;
+    }
+
+    .file-label {
+      display: inline-block;
+      background-color: #4CAF50;
+      color: var(--text-color);
+      padding: 10px 20px;
+      font-size: 14px;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+      background-color: var(--button-bg-color);
+      color: var(--button-text-color);
+    }
+
+    .file-label:hover {
+      background-color: #45a049;
+    }
+
+    .theme-toggle-container {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="popup-container">
+    <h1>Mail Viewer</h1>
+    <p>Select an .eml file to view its contents.</p>
+    <div class="button">
+      <input type="file" id="file-input" class="file-input" accept=".msg" />
+      <label for="file-input" class="file-label">Open File</label>
+    </div>
+    <div class="theme-toggle-container">
+      <div id="theme-toggle" style="cursor: pointer; width: 24px; height: 24px;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="6" fill="#FFD700" />
+          <line x1="12" y1="1" x2="12" y2="5" stroke="#FFD700" stroke-width="2" />
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+
+</html>

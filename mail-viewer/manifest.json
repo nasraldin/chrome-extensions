@@ -1,0 +1,39 @@
+{
+  "manifest_version": 3,
+  "name": "Mail Viewer",
+  "version": "1.0",
+  "description": "View outlook files in broswer",
+  "author": {
+    "email": "nasr2ldin@gmail.com"
+  },
+  "permissions": ["activeTab", "storage"],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/favicon-16x16.png",
+      "48": "images/favicon-48x48.png",
+      "128": "images/favicon-128x128.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["popup.js"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "icons": {
+    "16": "images/favicon-16x16.png",
+    "48": "images/favicon-48x48.png",
+    "128": "images/favicon-128x128.png"
+  }
+}
